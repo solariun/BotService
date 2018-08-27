@@ -8,7 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		67CC279B2133A041004FF70F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67CC279A2133A041004FF70F /* main.cpp */; };
+		67CC27A42133A38C004FF70F /* liblibsolar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC27A22133A35B004FF70F /* liblibsolar.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		674AEF492133A80F00587E3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 674AEF452133A80F00587E3C /* libsolar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 67346FFB21339ED40070E767;
+			remoteInfo = libsolar;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		67CC27952133A041004FF70F /* CopyFiles */ = {
@@ -23,8 +34,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		674AEF452133A80F00587E3C /* libsolar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsolar.xcodeproj; path = ../libsolar/libsolar.xcodeproj; sourceTree = "<group>"; };
 		67CC27972133A041004FF70F /* BotService */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BotService; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CC279A2133A041004FF70F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		67CC27A22133A35B004FF70F /* liblibsolar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibsolar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +45,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67CC27A42133A38C004FF70F /* liblibsolar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		674AEF462133A80F00587E3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				674AEF4A2133A80F00587E3C /* liblibsolar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		67CC278E2133A041004FF70F = {
 			isa = PBXGroup;
 			children = (
 				67CC27992133A041004FF70F /* BotService */,
 				67CC27982133A041004FF70F /* Products */,
+				67CC27A12133A35B004FF70F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +83,15 @@
 				67CC279A2133A041004FF70F /* main.cpp */,
 			);
 			path = BotService;
+			sourceTree = "<group>";
+		};
+		67CC27A12133A35B004FF70F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				674AEF452133A80F00587E3C /* libsolar.xcodeproj */,
+				67CC27A22133A35B004FF70F /* liblibsolar.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,12 +138,28 @@
 			mainGroup = 67CC278E2133A041004FF70F;
 			productRefGroup = 67CC27982133A041004FF70F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 674AEF462133A80F00587E3C /* Products */;
+					ProjectRef = 674AEF452133A80F00587E3C /* libsolar.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				67CC27962133A041004FF70F /* BotService */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		674AEF4A2133A80F00587E3C /* liblibsolar.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibsolar.a;
+			remoteRef = 674AEF492133A80F00587E3C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		67CC27932133A041004FF70F /* Sources */ = {
@@ -238,6 +286,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = ../libsolar;
+				OTHER_LDFLAGS = (
+					"-l",
+					sqlite3,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -246,6 +299,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = ../libsolar;
+				OTHER_LDFLAGS = (
+					"-l",
+					sqlite3,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
