@@ -7,6 +7,8 @@
 //============================================================================
 
 #include <Util.hpp>
+#include <SHA1.hpp>
+
 
 #include <DBAccess.hpp>
 #include <Sqlite3DBAccess.hpp>
@@ -17,7 +19,7 @@ int main()
 {
     Sqlite3DBAccess dataBase;
     
-    cout << "starting up" << endl;
+    cout << "starting up SHA1(teste):" << sha1 ("teste") << endl;
     
     
     try
